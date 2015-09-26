@@ -1,4 +1,4 @@
-namespace E_learning
+namespace Elearning
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,8 @@ namespace E_learning
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class brs_term
+    [Table("brs_term")]
+    public partial class Term
     {
         [StringLength(200)]
         public string CreatedByName { get; set; }
@@ -49,7 +50,8 @@ namespace E_learning
         public Guid? OwningTeam { get; set; }
 
         [Key]
-        public Guid brs_termId { get; set; }
+        [Column("brs_termId")]
+        public Guid TermId { get; set; }
 
         public DateTime? CreatedOn { get; set; }
 
@@ -83,19 +85,23 @@ namespace E_learning
         public int? UTCConversionTimeZoneCode { get; set; }
 
         [StringLength(100)]
-        public string brs_name { get; set; }
+        [Column("brs_name")]
+        public string Name { get; set; }
 
-        public string brs_Description { get; set; }
+        [Column("brs_Description")]
+        public string Description { get; set; }
 
         [StringLength(1000)]
-        public string brs_Synonyms { get; set; }
+        [Column("brs_Synonyms")]
+        public string Synonyms { get; set; }
 
         [StringLength(1000)]
-        public string brs_RelatedInformeaTerms { get; set; }
+        [Column("brs_RelatedInformeaTerms")]
+        public string RelatedInformeaTerms { get; set; }
 
-        public virtual IList<el_topic> Topics { get; set; }
+        public virtual IList<Topic> Topics { get; set; }
 
-        public virtual IList<brs_term> TermsBroader { get; set; }
-        public virtual IList<brs_term> TermsNarrower { get; set; }
+        public virtual IList<Term> TermsBroader { get; set; }
+        public virtual IList<Term> TermsNarrower { get; set; }
     }
 }

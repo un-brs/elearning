@@ -1,4 +1,4 @@
-namespace E_learning
+namespace Elearning
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,8 @@ namespace E_learning
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class el_topic
+    [Table("el_topic")]
+    public partial class Topic
     {
         [StringLength(200)]
         public string CreatedByName { get; set; }
@@ -84,14 +85,17 @@ namespace E_learning
         public int? UTCConversionTimeZoneCode { get; set; }
 
         [StringLength(512)]
-        public string el_titleen { get; set; }
+        [Column("el_titleen")]
+        public string TitleEn { get; set; }
 
-        public string el_descriptionen { get; set; }
+        [Column("el_descriptionen")]
+        public string DescriptionEn { get; set; }
 
         [StringLength(512)]
-        public string el_image { get; set; }
+        [Column("el_image")]
+        public string Image { get; set; }
 
-        public virtual IList<el_course> Courses { get; set; }
-        public virtual IList<brs_term> Terms { get; set; }
+        public virtual IList<Course> Courses { get; set; }
+        public virtual IList<Term> Terms { get; set; }
     }
 }

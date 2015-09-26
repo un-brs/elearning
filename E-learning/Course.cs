@@ -1,12 +1,12 @@
-namespace E_learning
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class el_course
+namespace Elearning
+{
+    [Table("el_course")]
+    public partial class Course
     {
         [StringLength(200)]
         public string CreatedByName { get; set; }
@@ -50,7 +50,8 @@ namespace E_learning
         public Guid? OwningTeam { get; set; }
 
         [Key]
-        public Guid el_courseId { get; set; }
+        [Column("el_courseId")]
+        public Guid CourseId { get; set; }
 
         public DateTime? CreatedOn { get; set; }
 
@@ -84,18 +85,23 @@ namespace E_learning
         public int? UTCConversionTimeZoneCode { get; set; }
 
         [StringLength(512)]
-        public string el_titleen { get; set; }
+        [Column("el_titleen")]
+        public string TitleEn { get; set; }
 
-        public string el_descriptionen { get; set; }
+        [Column("el_descriptionen")]
+        public string DescriptionEn { get; set; }
 
         [StringLength(100)]
-        public string el_urlen { get; set; }
+        [Column("el_urlen")]
+        public string UrlEn { get; set; }
 
         [StringLength(512)]
-        public string el_image { get; set; }
+        [Column("el_image")]
+        public string Image { get; set; }
 
-        public decimal? el_order { get; set; }
+        [Column("el_order")]
+        public decimal? Order { get; set; }
 
-        public virtual IList<el_topic> Topics { get; set; }
+        public virtual IList<Topic> Topics { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-namespace E_learning
+namespace Elearning
 {
     using System;
     using System.Data.Entity;
@@ -12,30 +12,30 @@ namespace E_learning
         {
         }
 
-        public virtual DbSet<brs_term> brs_term { get; set; }
-        public virtual DbSet<el_course> el_course { get; set; }
-        public virtual DbSet<el_topic> el_topic { get; set; }
+        public virtual DbSet<Term> Terms { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Topic> Topics { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<brs_term>()
+            modelBuilder.Entity<Term>()
                 .Property(e => e.VersionNumber)
                 .IsFixedLength();
 
-            modelBuilder.Entity<el_course>()
+            modelBuilder.Entity<Course>()
                 .Property(e => e.VersionNumber)
                 .IsFixedLength();
 
-            modelBuilder.Entity<el_course>()
-                .Property(e => e.el_order)
+            modelBuilder.Entity<Course>()
+                .Property(e => e.Order)
                 .HasPrecision(23, 10);
 
-            modelBuilder.Entity<el_topic>()
+            modelBuilder.Entity<Topic>()
                 .Property(e => e.VersionNumber)
                 .IsFixedLength();
 
 
-            modelBuilder.Entity<el_topic>()
+            modelBuilder.Entity<Topic>()
                 .HasMany(x => x.Courses)
                 .WithMany(x => x.Topics)
                 .Map(x =>
@@ -45,7 +45,7 @@ namespace E_learning
                     x.MapRightKey("el_topicid");
                 });
 
-            modelBuilder.Entity<el_topic>()
+            modelBuilder.Entity<Topic>()
                 .HasMany(x => x.Terms)
                 .WithMany(x => x.Topics)
                 .Map(x => {
@@ -54,7 +54,7 @@ namespace E_learning
                     x.MapRightKey("brs_termid");
                 });
 
-            modelBuilder.Entity<brs_term>()
+            modelBuilder.Entity<Term>()
                 .HasMany(x => x.TermsNarrower)
                 .WithMany(x => x.TermsBroader)
                 .Map(x => {

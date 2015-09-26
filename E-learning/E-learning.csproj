@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>E_learning</RootNamespace>
-    <AssemblyName>E-learning</AssemblyName>
+    <RootNamespace>Elearning</RootNamespace>
+    <AssemblyName>Elearning</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -104,6 +104,9 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ConnectionStrings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\E-learning publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -118,13 +121,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="brs_term.cs" />
+    <Compile Include="Term.cs" />
     <Compile Include="ElearningModel.cs" />
     <Compile Include="ElearningService.svc.cs">
       <DependentUpon>ElearningService.svc</DependentUpon>
     </Compile>
-    <Compile Include="el_course.cs" />
-    <Compile Include="el_topic.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="Topic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

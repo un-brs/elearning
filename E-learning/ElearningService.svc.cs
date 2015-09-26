@@ -13,7 +13,7 @@ using System.Data.Services.Providers;
 using System.Data.SqlTypes;
 
 
-namespace E_learning
+namespace Elearning
 {
     public class ElearningService : EntityFrameworkDataService<ElearningModel>
     {
