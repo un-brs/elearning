@@ -1,0 +1,3 @@
+<connectionStrings>
+  <add name="Elearning" connectionString="data source=localhost;initial catalog=elearning;persist security info=True;user id=myuser;password=mypassword;multipleactiveresultsets=True;application name=EntityFramework" providerName="System.Data.SqlClient"/>
+</connectionStrings>
